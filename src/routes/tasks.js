@@ -11,6 +11,9 @@ const {
   getTaskById,
   toggleTaskCompletion
 } = require('../controllers/taskController');
+const auth = require('../middleware/auth');
+
+router.use(auth)
 
 router.get('/', getAllTasks);
 router.post('/import', validateSheetUrl, importTasks);
